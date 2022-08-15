@@ -13,8 +13,8 @@ class deces extends TCPDF
 	
 	public $repar="الجمـهوريـــة الجزائرية الديمقراطية الشعبيــــــــة";
 	public $repfr="République algérienne démocratique et populaire";
-	public $mspar="وزارة الصحــــــــة و السكـــــــــان وإصلاح المستشــــــفيات";
-	public $mspfr="Ministère de la sante de la population et de la réforme hospitalière";
+	public $mspar="وزارة الصحــــــــة و السكـــــــــان";
+	public $mspfr="Ministère de la sante";
 	public $dspfr="Direction de la sante et de la population de la wilaya de ";
 	public $dspar="مـديريــــــة الصحــــة و الســـــكان لولايـــــة ";
 
@@ -97,7 +97,7 @@ class deces extends TCPDF
 	
 	function ANNEEAR($DATEINS) {
 		$A      = substr($DATEINS,2,2); 
-		$ANNEE = array("الثانى عشر  ","ثلاثة عشر  ","أربعة عشر  ","خمسة عشر  ","ستة عشر  ","سبعة عشر  ","ثمانية عشر ","تسعة عشر  ","عشرين","واحدوعشرين");
+		$ANNEE = array("الثانى عشر  ","ثلاثة عشر  ","أربعة عشر  ","خمسة عشر  ","ستة عشر  ","سبعة عشر  ","ثمانية عشر ","تسعة عشر  ","عشرين","واحدوعشرين","","","","","","");
 		$ANNEE1 =  $ANNEE[ $A - 12] ;
 		$DATEPV=" في عـــام الفيــــن و ".$ANNEE1;
 		return $DATEPV;

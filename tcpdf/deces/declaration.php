@@ -8,12 +8,12 @@ $pdf->setRTL(true);
 $pdf->RoundedRect($x=5, $y=5, $w=200, $h=285, $r=2, $round_corner='1111', $style='', $border_style=array(), $fill_color=array());
 $pdf->RoundedRect($x=145, $y=46, $w=1, $h=244, $r=2, $round_corner='1111', $style='', $border_style=array(), $fill_color=array());
 $pdf->mysqlconnect();
-$query = "select * from deceshosp WHERE  id = '$id'    ";
+$query = "select * from deceshosp WHERE id = '$id'    ";
 $resultat=mysql_query($query);
 while($result=mysql_fetch_object($resultat))
 {
 $pdf->SetFont('aefurat', '', 14);
-$pdf->SetXY(5,10);$pdf->Cell(200,6,$pdf->repar,0,1,'C');
+//$pdf->SetXY(5,10);$pdf->Cell(200,6,$pdf->repar,0,1,'C');
 $pdf->SetXY(5,20);$pdf->Cell(200,6,$pdf->mspar,0,1,'C');
 $pdf->SetXY(5,30);$pdf->Cell(200,6,$pdf->dspar.$pdf->nbrtostring("wil","IDWIL",$pdf->nbrtostring("structure","id",$result->STRUCTURED,"idwil"),"WILAYASAR"),0,1,'C');
 $pdf->SetFillColor(245);
@@ -25,13 +25,10 @@ $pdf->Text(65,$pdf->GetY()-5,$pdf->ANNEEAR($result->DINS));$pdf->Text(65+20,$pdf
 $pdf->Text(65,$pdf->GetY()+10,$pdf->JOURAR($result->DINS));$pdf->Text(65+20,$pdf->GetY(),'....................................................................................................');
 $pdf->Text(65,$pdf->GetY()+10,$pdf->MOISAR($result->DINS));$pdf->Text(65+20,$pdf->GetY(),'....................................................................................................');
 $pdf->Text(65,$pdf->GetY()+10,"نحن مدير المؤسسة العمومية ".$pdf->nbrtostring("structure","id",$result->STRUCTURED,"structurear")  );
-
 $pdf->Text(65,$pdf->GetY()+10,"نشعر رئيس المجلس الشعبي البلدي ضابط الحالة المدنية ببلدية ".'.............................');
-
 $pdf->Text(168,$pdf->GetY(),$pdf->nbrtostring("structure","id",$result->STRUCTURED,"daira"));
 //$pdf->Text(65,$pdf->GetY()+10," انه و قي هذا اليوم و على الساعة : ".$pdf->HEURSAR($result->HINS));$pdf->Text(60+55,$pdf->GetY(),".........................................................................");
 $pdf->Text(65,$pdf->GetY()+10," انه و في هذا اليوم و على الساعة : ".$pdf->HEURSAR($result->HINS));$pdf->Text(60+55,$pdf->GetY(),".........................................................................");
-
 $pdf->Text(65,$pdf->GetY()+10,"والدقيقة : ".$pdf->MINUTEAR($result->HINS));$pdf->Text(82,$pdf->GetY(),".....................................................................................................");
 $pdf->Text(65,$pdf->GetY()+10,"توفي (ت) المسمى (ة) : ".$result->NOMAR."  ".$result->PRENOMAR);$pdf->Text(102,$pdf->GetY(),"...................................................................................");
 $pdf->Text(65,$pdf->GetY()+10,"المولود (ة) : ".$result->DATENAISSANCE);$pdf->Text(85,$pdf->GetY(),"......................................");
